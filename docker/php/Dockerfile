@@ -12,10 +12,10 @@ RUN docker-php-ext-configure zip --with-libzip
 RUN docker-php-ext-install zip
 RUN docker-php-ext-enable apcu zip
 
-WORKDIR /usr/src/app
+WORKDIR /var/www
 
-COPY ./apps/supermare /usr/src/app
+COPY ./app/ /var/www
 
-RUN PATH=$PATH:/usr/src/apps/vendor/bin:bin
+RUN PATH=$PATH:/var/www/bin:bin
 
 CMD ["php-fpm", "-F"]

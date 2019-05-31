@@ -22,7 +22,7 @@ just add this to docker-compose.yml
       - mysql
 ```
 
-This setup is tested with Symfony version 4.2.3
+This setup is tested with Symfony version 4.3.0
 
 Composer is installed so there is no need to install it on your host machine. Just drop into PHP container and run composer commands.
 
@@ -38,5 +38,4 @@ For this you need to open you're terminal and execute this command
 Out of the box Apine distros dont have bash so that is why 
 you need to use ```/bin/sh``` instead of ```/bin/bash```. When you are in youre container ```cd``` into the ```app``` folder and execute ```composer create-project symfony/website-skeleton .```
 
-After you have Symfony installed, go to ```localhost``` and you should see the Symfony welcome screen.
-I used standard port for nginx to if you have something running on port ```80```, you might have conflicts.
+After you have Symfony installed, go to ```localhost:8001``` and you should see the Symfony welcome screen.

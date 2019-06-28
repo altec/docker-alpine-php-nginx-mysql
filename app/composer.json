@@ -1,4 +1,6 @@
 {
+    "name": "Docker-Alpine-PHP-NGINX-MySQL, boilerplate",
+    "description": "Basic Docker-Alpine-PHP-NGINX-MySQL boilerplate",
     "type": "project",
     "license": "proprietary",
     "require": {

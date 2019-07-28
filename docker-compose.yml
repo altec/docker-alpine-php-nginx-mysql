@@ -2,7 +2,7 @@ version: '3'
 services:
   mysql:
     image: mysql:8.0
-    container_name: supermare_mysql
+    container_name: prototype_mysql
     command: ["--default-authentication-plugin=mysql_native_password"]
     restart: on-failure
     environment:
@@ -11,20 +11,20 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
-      - supermare-data:/var/lib/mysql
+      - prototype-data:/var/lib/mysql
   php:
     build:
       context: .
       dockerfile: docker/php/Dockerfile
     volumes:
       - './app:/var/www'
-    container_name: supermare_php
+    container_name: prototype_php
     restart: on-failure
     env_file:
       - .env
   nginx:
     image: nginx:1.15-alpine
-    container_name: supermare_nginx
+    container_name: prototype_nginx
     restart: on-failure
     volumes:
       - './app:/var/www'
@@ -35,4 +35,4 @@ services:
       - php
 volumes:
   www:
-  supermare-data:
+  prototype-data:

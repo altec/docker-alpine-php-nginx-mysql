@@ -12,7 +12,7 @@ just add this to docker-compose.yml
 ```
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: supermare_phpmyadmin
+    container_name: prototype_phpmyadmin
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
@@ -34,7 +34,7 @@ Keep in mind that the command ```composer create-project symfony/website-skeleto
 Instead just ```cd``` into the ```app``` folder and execute this command ```composer create-project symfony/website-skeleton .```
 - second option is to use composer inside the container. 
 For this you need to open you're terminal and execute this command 
-```docker exec -i -t supermare_php /bin/sh```. 
+```docker exec -i -t prototype_php /bin/sh```. 
 Out of the box Apine distros dont have bash so that is why 
 you need to use ```/bin/sh``` instead of ```/bin/bash```. When you are in youre container ```cd``` into the ```app``` folder and execute ```composer create-project symfony/website-skeleton .```
 

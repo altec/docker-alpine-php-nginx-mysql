@@ -1,7 +1,7 @@
 Basic Docker environment for developing Symfony 4 applications.
 
 PHP docker image: php:7.3-fpm-alpine
-NGINX docker image: nginx:1.15-alpine
+NGINX docker image: nginx:1.16-alpine
 MySQL docker image: mysql:8.0
 
 I did not want to provide a DB tool like phpMyAdmin. 

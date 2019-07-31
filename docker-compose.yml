@@ -14,6 +14,9 @@ services:
       - prototype-data:/var/lib/mysql
     ports:
       - "${MYSQL_PORT}:3306"
+    networks:
+      prototype-network:
+        ipv4_address: 172.20.128.1
   php:
     build:
       context: .
@@ -24,6 +27,9 @@ services:
     restart: on-failure
     env_file:
       - .env
+    networks:
+      prototype-network:
+        ipv4_address: 172.20.128.2
   nginx:
     image: nginx:1.15-alpine
     container_name: prototype_nginx
@@ -35,6 +41,15 @@ services:
       - "${NGINX_PORT}:80"
     depends_on:
       - php
+    networks:
+      prototype-network:
+        ipv4_address: 172.20.128.3
 volumes:
   www:
   prototype-data:
+networks:
+  prototype-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

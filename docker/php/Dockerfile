@@ -1,7 +1,7 @@
 # ./docker/php/Dockerfile
 FROM php:7.3-fpm-alpine
 
-RUN apk add curl zip libzip-dev && rm /var/cache/apk/*
+RUN apk add bash curl zip libzip-dev && rm /var/cache/apk/*
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
 RUN docker-php-ext-install pdo_mysql

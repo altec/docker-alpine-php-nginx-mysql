@@ -1,5 +1,5 @@
 # ./docker/php/Dockerfile
-FROM php:7.3.8-fpm-alpine
+FROM php:7.4.0RC6-fpm-alpine
 
 ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0" \
     PHP_OPCACHE_MAX_ACCELERATED_FILES="7963" \
@@ -12,15 +12,19 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin -
 RUN docker-php-ext-install pdo_mysql
 
 RUN apk add $PHPIZE_DEPS
-RUN pecl install apcu xdebug-2.7.2
-RUN docker-php-ext-configure zip --with-libzip
+RUN pecl install apcu
+# RUN pecl install xdebug-2.7.2
+RUN docker-php-ext-configure zip
 RUN docker-php-ext-install zip opcache
-RUN docker-php-ext-enable apcu xdebug
+RUN docker-php-ext-enable apcu 
+# RUN docker-php-ext-enable xdebug
+
+RUN apk del --purge autoconf g++ make
 
 WORKDIR /var/www
 
 COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
-COPY ./docker/php/xdebug-dev.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+# COPY ./docker/php/xdebug-dev.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 COPY ./docker/php/php-fpm-pool.conf /usr/local/etc/php-fpm.d
 COPY ./docker/php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 

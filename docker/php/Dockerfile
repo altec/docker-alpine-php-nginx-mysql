@@ -1,5 +1,5 @@
 # ./docker/php/Dockerfile
-FROM php:7.4.0RC6-fpm-alpine
+FROM php:7.4-fpm-alpine
 
 ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0" \
     PHP_OPCACHE_MAX_ACCELERATED_FILES="7963" \
@@ -13,7 +13,7 @@ RUN docker-php-ext-install pdo_mysql
 
 RUN apk add $PHPIZE_DEPS
 RUN pecl install apcu
-# RUN pecl install xdebug-2.7.2
+# RUN pecl install xdebug-2.8.1
 RUN docker-php-ext-configure zip
 RUN docker-php-ext-install zip opcache
 RUN docker-php-ext-enable apcu 

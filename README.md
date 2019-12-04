@@ -1,6 +1,6 @@
 Basic Docker environment for developing Symfony 4 applications.
 
-- PHP docker image: [7.4.0RC6-fpm-alpine](https://hub.docker.com/_/php)
+- PHP docker image: [7.4-fpm-alpine](https://hub.docker.com/_/php)
 - NGINX docker image: [nginx:1.16-alpine](https://hub.docker.com/_/nginx)
 - MySQL docker image: [mysql:8.0](https://hub.docker.com/_/mysql)
 
@@ -22,7 +22,7 @@ just add this to docker-compose.yml
       - mysql
 ```
 
-This setup is tested with Symfony version 4.4.*
+This setup is tested with Symfony version 5.0.*
 
 Composer is installed so there is no need to install it on your host machine. Just drop into PHP container and run composer commands.
 

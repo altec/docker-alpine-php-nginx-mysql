@@ -16,7 +16,7 @@ services:
       - "${MYSQL_PORT}:3306"
     networks:
       prototype-network:
-        ipv4_address: 172.20.128.1
+        ipv4_address: 174.20.128.1
   php:
     build:
       context: .
@@ -29,7 +29,7 @@ services:
       - .env
     networks:
       prototype-network:
-        ipv4_address: 172.20.128.2
+        ipv4_address: 174.20.128.2
   nginx:
     build:
       context: .
@@ -45,7 +45,7 @@ services:
       - php
     networks:
       prototype-network:
-        ipv4_address: 172.20.128.3
+        ipv4_address: 174.20.128.3
 volumes:
   www:
   prototype-data:
@@ -54,4 +54,4 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.20.0.0/16
+        - subnet: 174.20.0.0/16

@@ -1,5 +1,5 @@
 # ./docker/php/Dockerfile
-FROM nginx:1.16-alpine
+FROM nginx:1.18-alpine
 
 ENV USER=www-data
 ENV UID=12345

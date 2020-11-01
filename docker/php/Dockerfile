@@ -1,5 +1,5 @@
 # ./docker/php/Dockerfile
-FROM php:7.4.9-fpm-alpine
+FROM php:7.4.12-fpm-alpine
 
 ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0" \
     PHP_OPCACHE_MAX_ACCELERATED_FILES="20000" \
